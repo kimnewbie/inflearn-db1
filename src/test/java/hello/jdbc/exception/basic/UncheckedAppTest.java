@@ -58,7 +58,7 @@ public class UncheckedAppTest {
             try {
                 runSQL();
             } catch (SQLException e) {
-                throw new RuntimeSQLException(e);
+                throw new RuntimeSQLException(e); // 기존 예외(e) 포함
             }
         }
 
