@@ -3,6 +3,7 @@ package hello.jdbc.service;
 import hello.jdbc.domain.Member;
 import hello.jdbc.repository.MemberRepository;
 import hello.jdbc.repository.MemberRepositoryV4_1;
+import hello.jdbc.repository.MemberRepositoryV4_2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,6 +33,7 @@ class MemberServiceV4Test {
     public static final String MEMBER_A = "memberA";
     public static final String MEMBER_B = "memberB";
     public static final String MEMBER_EX = "ex";
+
     @Autowired
     MemberRepository memberRepository;
     @Autowired
@@ -101,7 +103,9 @@ class MemberServiceV4Test {
 
         @Bean
         MemberRepository memberRepository() {
-            return new MemberRepositoryV4_1(dataSource); //단순 예외 변환
+//            수정
+//            return new MemberRepositoryV4_1(dataSource); // 단순 예외 변환
+            return new MemberRepositoryV4_2(dataSource); // 스프링 예외 변환
         }
 
         @Bean
